@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        const pageAccessedByReload = (
+            (window.performance.navigation && window.performance.navigation.type === 1) ||
+              window.performance
+                .getEntriesByType('navigation')
+                .map((nav) => nav.type)
+                .includes('reload')
+          );
+          if(pageAccessedByReload==true){
+              window.location.href="DataCreate.html"
+          }
+          </script>
+
+</head>
+
+<body>
+    <div class="container" id="box">
+        <!-- Instructions -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2 style="text-align: left;">Instructions</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <ol type="1" style="font-size: 1.2rem; text-align: justify;">
+                            <li>Initiate the process by clicking on the <b>CREATE</b> tab.</li>
+                            <li>Now, select whether you want to use a predefined dataset or create your own dataset.<br>
+                            <ul>
+                                <li>If, predefined data selected then jump to step 5.</li>
+                                <li>Otherwise, continue to the next step(3).</li>
+                            </ul></li>
+                            <li>Input the values for <b>Sepal Length</b> and <b>Sepal Width</b>, and select a <b>Species</b> from the attributes section. Afterward, click on the <b>ADD</b> button.</li>
+                            <li>Repeat the third step up to <b>12</b> times for data augmentation.</li>
+                            <li>Progress to the next stage by clicking on the <b>NEXT</b> button.</li>
+                            <li>Record the values of <b>Sepal Length</b> and <b>Sepal Width</b> into the Testing dataset, and then add them by clicking on the <b>ADD</b> button.</li>
+                            <li>Navigate to the next phase by clicking on the <b>NEXT</b> button.</li>
+                            <li>Choose the desired value for <b>K</b>, submit your selection by clicking the <b>SUBMIT</b> button, and then advance by clicking the <b>NEXT</b> button.</li>
+                            <li>Determine the Euclidean distance between your new data point and the dataset by utilizing the <b>DISTANCE</b> button located below the table.</li>
+                            <li>Establish the order of the distance (i.e., its position in the sorted list) by clicking on the <b>RANK</b> button.</li>
+                            <li>Continue the analysis by clicking on the <b>NEXT</b> button to assess the category of the Testing data.</li>
+                            <li>Visualize the K-Nearest Neighbors on the graph by clicking on the <b>PLOT</b> button.</li>
+                            <b Style="color: #004E86;">Note 1: </b>Length and width value are rounded up to 1 decimal place.<br>
+                            <b Style="color: #004E86;">Note 2: </b>Euclidean distance value is rounded up to 2 decimal place.
+                          </ol>
+                          
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        <header class="header">
+            <div class="tabs">
+                <!-- tabs -->
+                <div id="tab-1" style="color: #004E86;border-right: 2px solid #F5F5F5;border-top-left-radius: 10px;background-color:#ffd964;cursor: not-allowed;">
+                    <div class="tab-create tab-1-invert" style="border-top-left-radius: 10px;cursor: not-allowed;">
+                        CREATE
+                    </div>
+                    <img id="createimg" src="images/create1.png" style="margin-top: 3px; margin-right: 10px; height: 85%;"
+                        alt="">
+
+                </div>
+                <div id="tab-2" class="tab-1-disInvert"
+                    style="display: flex; border-right: 2px solid #F5F5F5;padding:0px">
+                    <div class="tab-create tab-1-disInvert">
+                        COMPUTE
+                    </div>
+                    <img id="calcimg" src="images/calculator.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+                <div id="tab-3" class="tab-2-disInvert"
+                    style="display: flex; border-right: 2px solid #F5F5F5;padding:0px">
+                    <div class="tab-create tab-2-disInvert">
+
+                        ANALYZE
+                    </div>
+                    <img id="anaimg" src="images/ANALYSIS.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+            </div>
+            <div class="instruction-container">
+                <a class="header-text" id="myBtn" style="padding-top: 5px" href="#">INSTRUCTIONS</a>
+            </div>
+        </header>
+
+        <div class="sec-con-container" id="trainingSection">
+            <div class="sec-con-column" id="non-table-section">
+                <!-- Data controls -->
+                <div class="training-left-side-container" id="training-left-side-container-1">
+                    <div class="sub-div-control" id="training-control">
+                        <header class="header-box" id="headerData"><strong>ATTRIBUTES</strong></header>
+                        <div class="control-panel">
+                            <div class="Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Sepal Length:</strong></lab>
+                                <input type="number" class="input-control" id="X" placeholder="range: 5 to 7.5"
+                                    oninput="limitDecimals(event)" min="5" title="Range: (5,7.5)">
+                            </div>
+                            <div class=" Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Sepal Width:</strong></lab>
+                                <input type="number" class="input-control" id="Y" placeholder="range: 2 to 4"
+                                    oninput="limitDecimals(event)" title="Range: (2,4)">
+                            </div>
+                            <div class=" Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Species:</strong></lab>
+                                <select name="Clusters" id="Species" class="SpeciesStyle" width="120px">
+                                    <option class="ChangeOptionBackground" value="NULL" hidden>Null</option>
+                                    <option class="ChangeOptionBackground" value="Setosa">Setosa</option>
+                                    <option class="ChangeOptionBackground" value="Virginica">Virginica</option>
+                                    <option class="ChangeOptionBackground" value="Verscicolor">Verscicolor</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--tESTING DATASET-->
+                    <div class="sub-div-control" id="testing-control" style="display: none;">
+                        <header class="header-box"><strong>ATTRIBUTES</strong></header>
+                        <div class="control-panel">
+                            <div class="Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Sepal Length:</strong></lab>
+                                <input type="number" class="input-control" id="Length" placeholder="range: 5 to 7.5"
+                                    oninput="limitDecimals(event)" min="5" title="Range: (5,7.5)">
+                            </div>
+                            <div class=" Data-set-x-value-input-container">
+                                <lab class="control-input-heading"><strong>Sepal Width:</strong></lab>
+                                <input type="number" class="input-control" id="Width" placeholder="range: 2 to 4"
+                                    oninput="limitDecimals(event)" title="Range: (2,4)">
+                            </div>
+                                                    
+                        </div>
+                      </div>
+
+
+                    <!-- cluster-control -->
+                    <div class=" sub-div-control" id="cluster-control">
+                        <header class="header-box"><strong>NEIGHBORS</strong></header>
+                        <div class="cluster-control-panel">
+                            <div class="Data-set-K-value-input-container">
+                                <label class="k-input-heading"><strong>Select the value for K:</strong>
+                                </label>
+                                
+                                <select name="Clusters" id="SelectK" class="ClusterStyle" multiple>
+                                    
+                                    <option class="ChangeOptionBackground" value="3">3</option>
+                                    <option class="ChangeOptionBackground" value="4">4</option>
+                                    <option class="ChangeOptionBackground" value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    <!-- data button section -->
+                    <div class="control-panel-button-container" id="data-button-container">
+                        <button id="add-button" onclick="addDataPoint()"
+                            style="margin-left: 3px;">ADD</button>
+                        <button  disabled id="resets"
+                            onclick="window.location.href='DataCreate.html'" style="margin-left: 3px;">RESET</button>
+                        <button id="next-button" disabled>NEXT</button>
+                    </div>
+
+                    <!-- testing-data button section -->
+                    <div class="control-panel-button-container" id="testdata-button-container" style="display: none;">
+                        <button  id="test-add-button"  style="margin-left: 3px;" onclick="submitTestData()">ADD</button>
+                        <button  id="resetbut" onclick="resetThirteenthRow()" disabled style="margin-left: 3px;">RESET</button>
+                        <button id="testing-next-button"  disabled>NEXT</button>
+
+                    </div>
+
+
+                    <!-- cluster button section -->
+                    <div class="cluster-panel-button-container " id="cluster-button-container">
+                        <button  id="k-submit-button"
+                            style="margin-left: 3px;" onclick="submitK()">SUBMIT</button>
+                        <button onclick="resetK()"
+                            style="margin-left: 3px;">RESET</button>
+                        
+                        <button id="k-next-button" disabled>NEXT</button>
+                    </div>
+
+                </div>
+                <!-- graph -->
+                <div class="sub-div-plot" id="graphId">
+                    <header class="header-box"><strong>GRAPH</strong></header>
+                    <div id="chart-container">
+                        <div id="chart"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- table -->
+            <div class="sec-con-table" id="tableId">
+                <div class="sub-div-table">
+                    <header class="header-box"><strong>OBSERVATION TABLE</strong></header>
+                    <div id="tablesContainer">
+                        <table id="data-table">
+                            <!-- <thead> -->
+                            <tr>
+                                <th><strong>S. No.</strong></th>
+                                <th><strong>SEPAL LENGTH</strong></th>
+                                <th><strong>SEPAL WIDTH</strong></th>
+                                <th><strong>SPECIES</strong></th>
+                                <th id="deleteButton"><strong>DELETE</strong></th>
+                            </tr>
+                            
+                        </table>
+
+                        <table id="predefined-data-table" style="display:none">
+                            <thead>
+                                <tr>
+                                    <th>S. No.</th>
+                                    <th>SEPAL LENGTH</th>
+                                    <th>SEPAL WIDTH</th>
+                                    <th>SPECIES</th>
+                                </tr>
+                                <tr>
+                                    <td>1</td>
+                                    <td>5.3</td>
+                                    <td>3.7</td>
+                                    <td>Setosa</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>5.1</td>
+                                    <td>3.8</td>
+                                    <td>Setosa</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>7.2</td>
+                                    <td>3.0</td>
+                                    <td>Virginica</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>5.4</td>
+                                    <td>3.4</td>
+                                    <td>Setosa</td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>5</td>
+                                    <td>5.4</td>
+                                    <td>3.9</td>
+                                    <td>Setosa</td>
+                                </tr>
+                                <tr>
+                                    <td>6</td>
+                                    <td>7.4</td>
+                                    <td>2.8</td>
+                                    <td>Virginica</td>
+                                </tr>
+                                <tr>
+                                    <td>7</td>
+                                    <td>6.1</td>
+                                    <td>2.8</td>
+                                    <td>Verscicolor</td>
+                                </tr>
+                               
+                              
+                                <tr>
+                                    <td>8</td>
+                                    <td>5.8</td>
+                                    <td>2.8</td>
+                                    <td>Virginica</td>
+                                </tr>
+                                <tr>
+                                    <td>9</td>
+                                    <td>6.3</td>
+                                    <td>2.3</td>
+                                    <td>Verscicolor</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>5.1</td>
+                                    <td>2.5</td>
+                                    <td>Verscicolor</td>
+                                </tr>
+                                <tr>
+                                    <td>11</td>
+                                    <td>6.3</td>
+                                    <td>2.5</td>
+                                    <td>Verscicolor</td>
+                                </tr>
+                                <tr>
+                                    <td>12</td>
+                                    <td>5.5</td>
+                                    <td>2.4</td>
+                                    <td>Verscicolor</td>
+                                </tr>
+                               
+
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                  
+                       
+                        
+                   
+                </div>
+            </div>
+        </div>
+
+        <!-- compute section -->
+        <div class="compute-sec-con-container" id="ComputeSection">
+            <div class="flux-box">
+                <div class="tableSection" id="compute-table-section">
+                    <!-- table -->
+                    <div class="compute-sec-con-table">
+                        <div class="compute-sub-div-table">
+                            <header class="header-box"><strong>OBSERVATION TABLE</strong></header>
+                            <div id="ComputeTablesContainer">
+                                <table id="data-table-compute">
+                                    <tr id="compute-tr">
+                                        <th><strong>S. No.</strong></th>
+                                        <th><strong>SEPAL LENGTH</strong></th>
+                                        <th><strong>SEPAL WIDTH</strong></th>
+                                        <th><strong>SPECIES</strong></th>
+                                        <th id="D_header"><strong>DISTANCE</strong></th>
+                                       <th id="clusterK"><strong>RANK</strong></th>
+                                       
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="computeButtonContainer" id="compute-item-2">
+                                <button class="button-compute" id="D_compute">DISTANCE</button>
+                                <button class="button-compute" id="rank" disabled onclick="rank()">RANK</button>
+                                <button class="button-compute" onclick="resetComputeSectionForButton()">RESET</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="compute-sec-con-left-side-container" id="compute-item-3">
+                    <div class="sub-div-formula">
+                        <header class="header-box"><strong>FORMULA</strong></header>
+                        <div class="formula-container">
+                            <div class="equation">Euclidean Distance:</div>
+                            <div class="equation" title="Euclidean Distance"> √((X<sub>2</sub> – X<sub>1</sub>)² +
+                                (Y<sub>2</sub> – Y<sub>1</sub>)²)</div>
+                        </div>
+                    </div>
+
+                    <div class="sub-div-cendroids" id="compute-item-4">
+                        <header class="header-box"><strong id="formula_header">DISTANCE</strong></header>
+                        
+                        <div id="showTrainData" class="cenroidsContainer">         
+                        </div>
+
+                        <div id="calculation"></div>
+                    </div>
+                    <div class="newCentroidContainer" id="compute-item-5">
+                        
+                        <button class="button-next-compute" id="next-compute-to-analysis">NEXT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- analyse section -->
+        <div class="compute-sec-con-container" id="analyseSection">
+            <div class="flux-box">
+                <!-- table -->
+                <div class="analysis-sec-con-table">
+                    <div class="analysis-sub-div-table">
+                        <header class="header-box"><strong>K-NN TABLE</strong></header>
+                        <div style="text-align: justify;width:80%;margin-left:40px">
+                            <p id="head" style="font-size: 18px;"></p>
+                        </div>
+                       
+                        <div id="analysisTablesContainer">
+                            <table id="data-table-analysis">
+                                <thead>
+                                    <tr>
+                                        <th>RANK</th>
+                                        <th>SEPAL LENGTH</th>
+                                        <th>SEPAL WIDTH</th>
+                                        <th>SPECIES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                            <br>
+                            <div style="text-align: justify;width:80%;bottom: 10px;
+                            position: absolute;">
+                                <p id="result" style="font-size: 18px;color:#004E86"></p>
+                            </div>
+                        </div>
+
+                       
+                    </div>
+                </div>
+                <div class="sec-con-column-analysis">
+
+                    <div class="sub-div-plot-analysis">
+                        <header class="header-box"><strong>K-NN PLOT</strong></header>
+                        <div id="legend"></div>
+                        <div id="graph"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="analysis-button-container">
+                <button class="button" id="plot-analysis">PLOT</button>
+                <button class="button" id="print" onclick="printPage()" disabled>PRINT</button>
+            </div>
+        </div>
+
+
+
+        <!-- footer -->
+        <footer class="footer">
+            <span class="footer-text">© 2025 Virtual Labs, IIT Roorkee</span>
+        </footer>
+    </div>
+   
+
+<script>
+        // Get the input element
+const inputElements = document.getElementsByClassName('input-control');
+
+// Add a click event listener to the input element
+inputElements[0].addEventListener('click', function () {
+    this.style.border= '';
+});
+inputElements[1].addEventListener('click', function () {
+    this.style.border= '';
+});
+inputElements[2].addEventListener('click', function () {
+    this.style.border= '';
+});
+inputElements[3].addEventListener('click', function () {
+    this.style.border= '';
+});
+
+const selectElement = document.getElementById('Species');
+selectElement.addEventListener('click', function () {
+    this.style.border= '';
+});
+</script>
+
+
+   
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script src="js/index.js"></script>
+ 
+
+
+</body>
+
+</html>
