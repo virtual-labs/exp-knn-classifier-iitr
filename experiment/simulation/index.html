@@ -1,13 +1,150 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<!-- Add CSS at the head of HTML file -->
-    <link rel="stylesheet" href="./css/main.css">
-</head>
-<body>
-		<!-- Your code goes here-->
+<html lang="en">
 
-	<!-- Add JS at the bottom of HTML file --> 
-        <script src="./js/main.js"></script>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container" id="box">
+        <!-- Instructions -->
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">×</span>
+                    <h2 style="text-align: left;">Instructions</h2>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <ol type="1" style="font-size: 1.2rem; text-align: left;">
+                            <li>Initiate the process by clicking on the <b>CREATE</b> tab.</li>
+                            <li>Now, select whether you want to use a predefined dataset or create your own dataset.<br>
+                            <ul>
+                                <li>If, predefined data selected then jump to step 5.</li>
+                                <li>Otherwise, continue to the next step(3).</li>
+                            </ul>
+                        </li>
+                            <li>Input the values for <b>Sepal Length</b> and <b>Sepal Width</b>, and select a <b>Species</b> from the attributes section. Afterward, click on the <b>ADD</b> button.</li>
+                            <li>Repeat the third step up to <b>12</b> times for data augmentation.</li>
+                            <li>Progress to the next stage by clicking on the <b>NEXT</b> button.</li>
+                            <li>Record the values of <b>Sepal Length</b> and <b>Sepal Width</b> into the Testing dataset, and then add them by clicking on the <b>ADD</b> button.</li>
+                            <li>Navigate to the next phase by clicking on the <b>NEXT</b> button.</li>
+                            <li>Choose the desired value for <b>K</b>, submit your selection by clicking the <b>SUBMIT</b> button, and then advance by clicking the <b>NEXT</b> button.</li>
+                            <li>Determine the Euclidean distance between your new data point and the dataset by utilizing the <b>DISTANCE</b> button located below the table.</li>
+                            <li>Establish the order of the distance (i.e., its position in the sorted list) by clicking on the <b>RANK</b> button.</li>
+                            <li>Continue the analysis by clicking on the <b>NEXT</b> button to assess the category of the Testing data.</li>
+                            <li>Visualize the K-Nearest Neighbors on the graph by clicking on the <b>PLOT</b> button.</li>
+                            <b Style="color: #004E86;">Note 1: </b>Length and width value are rounded up to 1 decimal place.<br>
+                            <b Style="color: #004E86;">Note 2: </b>Euclidean distance value is rounded up to 2 decimal place.
+                          </ol>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                    <br>
+                </div>
+            </div>
+        </div>
+
+        <!-- header -->
+        <header class="header">
+            <div class="tabs">
+
+                <!-- tabs -->
+                <div id="tab-1" style="display: flex; border-right: 2px solid #F5F5F5; " onclick="window.location.href='DataCreate.html'">
+                    <div class="tab-create tab-text" style="font-weight: bold;">
+                        CREATE
+                    </div>
+                    <img src="images/create.png" style="margin-top: 3px; margin-right: 10px; height: 85%" alt="">
+
+                </div>
+                <div id="tab-2" style="display: flex; border-right: 2px solid #F5F5F5; cursor:not-allowed;">
+                    <div class="tab-create tab-text" style="cursor:not-allowed;">
+                        COMPUTE
+                    </div>
+                    <img src="images/calculator.png"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;cursor:not-allowed;" alt="">
+                </div>
+                <div id="tab-3" style="display: flex; border-right: 2px solid #F5F5F5; cursor:not-allowed;">
+                    <div class="tab-create tab-text" style="cursor:not-allowed;">
+                        ANALYZE
+                    </div>
+                    <img src="images/ANALYSIS.png" class="disableCompute"
+                        style="margin-top: 3px; margin-right: 10px; height: 85%;" id="calImg" alt="">
+                </div>
+            </div>
+            <div class="instruction-container">
+                <a class="header-text" id="myBtn" style="padding-top: 5px" href="#">INSTRUCTIONS</a>
+            </div>
+        </header>
+<div style="width:80%;margin-top: 2.3in; margin-left: 1in;">
+    <center>
+        <p style="color:#004E86;font-size: 24px;text-align: justify;">
+            Consider an example with three attributes: <span style="color:#333;font-size: 24px;text-align: justify;">sepal length, sepal width, and species. 
+                The target attribute, which comprises three species (Setosa, Virginia, and Versicolor), is utilized to identify the nearest species from the three using the k-Nearest Neighbors.
+             To start click on the <b style="color:#004E86">CREATE</b> tab.</span>
+         </p>
+         
+    </center>
+    
+</div>
+
+
+
+
+        <footer class="footer">
+            <span class="footer-text">© 2025 Virtual Labs, IIT Roorkee</span>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+    <script>
+
+        // const myContainer = document.getElementById("box");
+        // myContainer.style.padding="0px";
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the button that opens the modal
+        var modalBtn = document.getElementById("myBtn");
+        // var modalBtn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var closeBtn = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        modalBtn.addEventListener("click", function () {
+            modal.style.display = "block";
+        });
+
+        // When the user clicks on <span> (x), close the modal
+        closeBtn.addEventListener("click", function () {
+            modal.style.display = "none";
+        });
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.addEventListener("click", function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+        const myContainer = document.getElementById('box');
+        function waitforme(millisec) { 
+return new Promise(resolve => { 
+setTimeout(() => { resolve('') }, millisec); 
+}) 
+} 
+
+
+   </script>
 </body>
+
 </html>

@@ -1,39 +1,52 @@
-{
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "This is a Sample Question 1?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "a",
-      "difficulty": "beginner"
+[
+  {
+    "question": "What does K-NN stand for?",
+    "answers": {
+      "a": "K-Normal Network",
+      "b": "K-Nearest Neighbors",
+      "c": "Key-Neural Network",
+      "d": "Known-Node Neighbors"
     },
-    {
-      "question": "This is a Sample Question 2?",
-      "answers": {
-        "a": "answer1",
-        "b": "answer2",
-        "c": "answer3",
-        "d": "answer4"
-      },
-      "explanations": {
-        "a": "Explanation 1  <a href='www.google.com'>here</a>",
-        "b": "Explanation 2",
-        "c": "Explanation 2",
-        "d": "Explanation 2"
-      },
-      "correctAnswer": "c",
-      "difficulty": "beginner"
-    }
-  ]
-}
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following is NOT a hyperparameter in K-NN algorithm?",
+    "answers": {
+      "a": "Number of neighbors (K)",
+      "b": "Distance metric",
+      "c": "Learning rate",
+      "d": "Algorithm to compute nearest neighbors"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "K-NN is an example of which type of learning?",
+    "answers": {
+      "a": "Supervised learning",
+      "b": "Unsupervised learning",
+      "c": "Reinforcement learning",
+      "d": "Semi-supervised learning"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Which distance metric is commonly used in the K-Nearest Neighbors (KNN) algorithm for continuous data?",
+    "answers": {
+      "a": "Manhattan distance",
+      "b": "Euclidean distance",
+      "c": "Minkowski distance",
+      "d": "Hamming distance"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following option is true about k-NN algorithm?",
+    "answers": {
+      "a": "It can be used for classification",
+      "b": "It can be used for regression",
+      "c": "It can be used for classification and regression",
+      "d": "None of the above"
+    },
+    "correctAnswer": "c"
+  }
+]

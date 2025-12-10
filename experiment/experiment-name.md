@@ -1,1 +1,1 @@
-## Experiment name
+## To study and implement the K-NN Classifier for pattern recognition and prediction
