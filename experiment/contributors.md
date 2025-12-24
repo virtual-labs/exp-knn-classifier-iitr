@@ -9,5 +9,7 @@
 | SNo. | Name | Email | Institute | Position |
 | :--- | :--- | :--- | :--- | :--- |
 | 1 | Dr. Rajeev Kumar | rajeev.kumar@ee.iitr.ac.in	 | PEC Chandigarh | Assistant Professor |
+<!-- | 2	| Ms. Pragya Daksh | prgdaksh@gmail.com	| IIT Roorkee	| Project Associate |
+| 3	| Mr. Nipun Jain | nipunjain1305@gmail.com	| IIT Roorkee	| Project Associate | -->
 
  
