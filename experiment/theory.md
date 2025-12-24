@@ -41,14 +41,14 @@ The value of k in the k-NN algorithm should be chosen based on the input data. I
 6. Predict class label with more neighbors for testing data.
 
 <center>  
-<img style="mix-blend-mode: darken;" src="images\k-NN.png" width="50%" alt="Flowchart for a basic understanding of how K-NN works">
+<img style="mix-blend-mode: darken;" src="images\k-NN.png" width="400" alt="Flowchart for a basic understanding of how K-NN works">
 <figcaption><strong>Fig. 2 Flowchart for a basic understanding of how K-NN works</strong></figcaption>
 </center>
 
 ### **What is the difference between K-NN, and K means?**
 K-NN and K-means are two distinct algorithms used in different types of machine learning tasks, and they serve different purposes:
 
-<table>
+<table align="center">
 <caption><strong>Table 1: K-NN vs K-means</strong></caption>
   <tr>
     <th>Feature</th>
