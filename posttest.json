@@ -1,0 +1,52 @@
+[
+  {
+    "question": "Which step is not involved in the KNN algorithm?",
+    "answers": {
+      "a": "Training phase",
+      "b": "Testing phase",
+      "c": "Decision boundary optimization",
+      "d": "Evaluation phase"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "What does the value of K represent in the KNN algorithm?",
+    "answers": {
+      "a": "The number of features in the dataset.",
+      "b": "The distance metric used to calculate similarities.",
+      "c": "The number of nearest neighbors to consider for classification.",
+      "d": "The number of training instances in the dataset."
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "In the KNN algorithm, how is the class of a new instance determined?",
+    "answers": {
+      "a": "By taking the weighted average of the classes of its k nearest neighbors.",
+      "b": "By selecting the class of the nearest neighbor with the highest confidence score.",
+      "c": "By choosing the class of the majority of its k nearest neighbors.",
+      "d": "By fitting a decision boundary using logistic regression."
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "Which of the following is a disadvantage of the KNN algorithm?",
+    "answers": {
+      "a": "It is not suitable for multi-class classification.",
+      "b": "It requires a significant amount of memory to store the entire training dataset.",
+      "c": "It assumes that the data instances are linearly separable.",
+      "d": "It is sensitive to the feature scaling of the input data."
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following statements about the decision boundary in K-Nearest Neighbors (KNN) algorithm is true?",
+    "answers": {
+      "a": "The decision boundary in KNN is always linear.",
+      "b": "The decision boundary in KNN can be non-linear.",
+      "c": "The decision boundary in KNN depends only on the value of K.",
+      "d": "The decision boundary in KNN is determined by the feature space dimensionality."
+    },
+    "correctAnswer": "b"
+  }
+]

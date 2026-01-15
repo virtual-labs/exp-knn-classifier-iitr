@@ -1,0 +1,1 @@
+#### The aim of the experiment is to study the K-NN Classifier algorithm to learn how to identify patterns, segment data, and make predictions based on similarities among data points.

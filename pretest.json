@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What does K-NN stand for?",
+    "answers": {
+      "a": "K-Normal Network",
+      "b": "K-Nearest Neighbors",
+      "c": "Key-Neural Network",
+      "d": "Known-Node Neighbors"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following is NOT a hyperparameter in K-NN algorithm?",
+    "answers": {
+      "a": "Number of neighbors (K)",
+      "b": "Distance metric",
+      "c": "Learning rate",
+      "d": "Algorithm to compute nearest neighbors"
+    },
+    "correctAnswer": "c"
+  },
+  {
+    "question": "K-NN is an example of which type of learning?",
+    "answers": {
+      "a": "Supervised learning",
+      "b": "Unsupervised learning",
+      "c": "Reinforcement learning",
+      "d": "Semi-supervised learning"
+    },
+    "correctAnswer": "a"
+  },
+  {
+    "question": "Which distance metric is commonly used in the K-Nearest Neighbors (KNN) algorithm for continuous data?",
+    "answers": {
+      "a": "Manhattan distance",
+      "b": "Euclidean distance",
+      "c": "Minkowski distance",
+      "d": "Hamming distance"
+    },
+    "correctAnswer": "b"
+  },
+  {
+    "question": "Which of the following option is true about k-NN algorithm?",
+    "answers": {
+      "a": "It can be used for classification",
+      "b": "It can be used for regression",
+      "c": "It can be used for classification and regression",
+      "d": "None of the above"
+    },
+    "correctAnswer": "c"
+  }
+]
