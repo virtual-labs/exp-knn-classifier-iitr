@@ -54,7 +54,7 @@ The value of k in the k-NN algorithm should be chosen based on the input data. I
 <figcaption><strong>Table 1: Training Dataset T</strong></figcaption>
 </center> -->
 
-<div align="center">
+<!-- <div align="center">
 
 <b>Table 1: Training Dataset T</b>
 
@@ -69,8 +69,26 @@ The value of k in the k-NN algorithm should be chosen based on the input data. I
 | 7 | 5.8 | 38 | 5 | Fail |
 | 8 | 8.9 | 91 | 9 | Pass |
 
-</div>
+</div> -->
 
+<table align="center" border="1" cellpadding="6" cellspacing="0">
+  <caption><b>Table 1: Training Dataset T</b></caption>
+  <tr>
+    <th>SNo.</th>
+    <th>CGPA</th>
+    <th>Assessment</th>
+    <th>Project Submitted</th>
+    <th>Result</th>
+  </tr>
+  <tr><td>1</td><td>9.2</td><td>85</td><td>8</td><td>Pass</td></tr>
+  <tr><td>2</td><td>8.0</td><td>80</td><td>7</td><td>Pass</td></tr>
+  <tr><td>3</td><td>8.5</td><td>81</td><td>8</td><td>Pass</td></tr>
+  <tr><td>4</td><td>6.0</td><td>45</td><td>5</td><td>Fail</td></tr>
+  <tr><td>5</td><td>6.5</td><td>50</td><td>4</td><td>Fail</td></tr>
+  <tr><td>6</td><td>8.2</td><td>72</td><td>7</td><td>Pass</td></tr>
+  <tr><td>7</td><td>5.8</td><td>38</td><td>5</td><td>Fail</td></tr>
+  <tr><td>8</td><td>8.9</td><td>91</td><td>9</td><td>Pass</td></tr>
+</table>
 
 
 <!-- <div style= "margin-left: 180px;">
