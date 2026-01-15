@@ -54,11 +54,12 @@ The value of k in the k-NN algorithm should be chosen based on the input data. I
 <figcaption><strong>Table 1: Training Dataset T</strong></figcaption>
 </center> -->
 
-<center>
-<caption><b>Table 1: Training Dataset T</b></caption>
+<div align="center">
+
+<b>Table 1: Training Dataset T</b>
 
 | SNo. | CGPA | Assessment | Project Submitted | Result |
-| :---: | :---: | :---: | :---: | :---: |
+|:---:|:---:|:---:|:---:|:---:|
 | 1 | 9.2 | 85 | 8 | Pass |
 | 2 | 8.0 | 80 | 7 | Pass |
 | 3 | 8.5 | 81 | 8 | Pass |
@@ -68,7 +69,8 @@ The value of k in the k-NN algorithm should be chosen based on the input data. I
 | 7 | 5.8 | 38 | 5 | Fail |
 | 8 | 8.9 | 91 | 9 | Pass |
 
-</center>
+</div>
+
 
 
 <!-- <div style= "margin-left: 180px;">
@@ -239,35 +241,38 @@ Assign k = 3.<br>
     </tbody>
 </table>
 </center><br> -->
-<center>
-<caption><b>Table 2: Euclidean Distance</b></caption>
+<div align="center">
+
+<b>Table 2: Euclidean Distance</b>
 
 | SNo. | CGPA | Assessment | Project Submitted | Result | Euclidean Distance |
-| :---: | :---: | :---: | :---: | :---: | :---: |
-| 1 | 9.2 | 85 | 8 | Pass | √((9.2 − 6.1)<sup>2</sup> + (85 − 40)<sup>2</sup> + (8 − 5)<sup>2</sup>) <br>= 45.2063 |
-| 2 | 8.0 | 80 | 7 | Pass | √((8.0 − 6.1)<sup>2</sup> + (80 − 40)<sup>2</sup> + (7 − 5)<sup>2</sup>) <br>= 40.0950 |
-| 3 | 8.5 | 81 | 8 | Pass | √((8.5 − 6.1)<sup>2</sup> + (81 − 40)<sup>2</sup> + (8 − 5)<sup>2</sup>) <br>= 41.1796 |
-| 4 | 6.0 | 45 | 5 | Fail | √((6.0 − 6.1)<sup>2</sup> + (45 − 40)<sup>2</sup> + (5 − 5)<sup>2</sup>) <br>= 5.0010 |
-| 5 | 6.5 | 50 | 4 | Fail | √((6.5 − 6.1)<sup>2</sup> + (50 − 40)<sup>2</sup> + (4 − 5)<sup>2</sup>) <br>= 10.0578 |
-| 6 | 8.2 | 72 | 7 | Pass | √((8.2 − 6.1)<sup>2</sup> + (72 − 40)<sup>2</sup> + (7 − 5)<sup>2</sup>) <br>= 32.1311 |
-| 7 | 5.8 | 38 | 5 | Fail | √((5.8 − 6.1)<sup>2</sup> + (38 − 40)<sup>2</sup> + (5 − 5)<sup>2</sup>) <br>= 2.0223 |
-| 8 | 8.9 | 91 | 9 | Pass | √((8.9 − 6.1)<sup>2</sup> + (91 − 40)<sup>2</sup> + (9 − 5)<sup>2</sup>) <br>= 51.2332 |
+|:---:|:---:|:---:|:---:|:---:|:---:|
+| 1 | 9.2 | 85 | 8 | Pass | 45.2063 |
+| 2 | 8.0 | 80 | 7 | Pass | 40.0950 |
+| 3 | 8.5 | 81 | 8 | Pass | 41.1796 |
+| 4 | 6.0 | 45 | 5 | Fail | 5.0010 |
+| 5 | 6.5 | 50 | 4 | Fail | 10.0578 |
+| 6 | 8.2 | 72 | 7 | Pass | 32.1311 |
+| 7 | 5.8 | 38 | 5 | Fail | 2.0223 |
+| 8 | 8.9 | 91 | 9 | Pass | 51.2332 |
 
+</div>
 
-</center>
 <b>Step 4:</b> Identify K Nearest Training Data Points
 Sort the distances in the ascending order and select the first 3 nearest training data instances to the test instance. The selected nearest neighbours are shown in below Table 3.<br><br>
 
-<center>
-<caption><center><b>Table 3: Nearest Neighbours</b></center></caption>
+<div align="center">
+
+<b>Table 3: Nearest Neighbours</b>
 
 | Instance | Euclidean Distance | Class |
-| :---: | :---: | :---: |
+|:---:|:---:|:---:|
 | 4 | 5.001 | Fail |
-| 5 | 10.05783 | Fail |
-| 7 | 2.022375 | Fail |
+| 5 | 10.0578 | Fail |
+| 7 | 2.0223 | Fail |
 
-</center>
+</div>
+
 <!-- <caption><center><b>Table 3: Nearest Neighbours</b></center></caption>
 <table style="margin: auto; text-align:center; border: 1px solid black; ">
     <tr style="background-color:#7fc3e1;">
@@ -301,21 +306,19 @@ Sort the distances in the ascending order and select the first 3 nearest trainin
 #### **What is the difference between K-NN, and K means?**
 K-NN and K-means are two distinct algorithms used in different types of machine learning tasks, and they serve different purposes:
 
-<center>
-<caption><center><b>Table 4: K-NN vs K-means</b></center></caption>
+<div align="center">
+
+<b>Table 4: K-NN vs K-means</b>
 
 | Feature | K-NN | K-means |
-| :---: | :---: | :---: |
-| K | The number of nearest neighbors. | The number of clusters. |
-| Type | Supervised learning algorithm | Unsupervised learning algorithm |
-| Purpose | Classification and regression tasks | Clustering tasks |
-| Operation | Predicts based on majority vote or average | Clusters data based on centroids |
-| Learning Approach | Lazy learner (no explicit model creation) | Eager learner (creates clusters) |
-| Training Phase | Stores the entire training dataset | Builds clusters during training |
-| Decision Mechanism | Majority vote or average of k neighbors | Minimizes squared distances to centroids |
-| Use Case Examples | Image recognition, recommendation systems | Customer segmentation, anomaly detection |
+|:---:|:---:|:---:|
+| Type | Supervised | Unsupervised |
+| Purpose | Classification/Regression | Clustering |
+| Learning | Lazy | Eager |
+| Use Case | Recommendation, Vision | Segmentation |
 
-</center>
+</div>
+
 <br>
 <!-- <table align="center">
 <caption><strong><center>Table 4: K-NN vs K-means</center></strong></caption>
